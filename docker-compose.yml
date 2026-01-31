@@ -1,0 +1,97 @@
+# =============================================================================
+# Google Authenticator Export Decoder - Docker Compose
+# =============================================================================
+# Production deployment configuration
+#
+# Usage:
+#   docker-compose up -d        Start in background
+#   docker-compose down         Stop and remove containers
+#   docker-compose logs -f      Follow logs
+#   docker-compose pull         Pull latest image
+#   docker-compose up -d --build  Rebuild and start
+#
+# Access: http://localhost:8080
+# =============================================================================
+
+services:
+  app:
+    # Build from local Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # Container name for easy reference
+    container_name: ga-export-decoder
+
+    # Hostname for internal networking
+    hostname: ga-export-decoder
+
+    # Port mapping: external:internal
+    ports:
+      - "8080:80"
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 128M
+        reservations:
+          cpus: "0.1"
+          memory: 32M
+
+    # Restart policy
+    restart: unless-stopped
+
+    # Health check (mirrors Dockerfile but can be customized)
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        compress: "true"
+
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+
+    # Read-only root filesystem (nginx needs some writable dirs)
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx:mode=1777,size=10m
+      - /var/run:mode=1777,size=1m
+      - /tmp:mode=1777,size=10m
+
+    # Environment variables (if needed)
+    environment:
+      - TZ=Etc/UTC
+
+    # Labels for management/monitoring
+    labels:
+      - "vendor=BAUER GROUP"
+      - "maintainer=Karl Bauer <karl.bauer@bauer-group.com>"
+      - "org.opencontainers.image.title=Google Authenticator Export Decoder"
+      - "org.opencontainers.image.description=PWA for scanning Google Authenticator export QR codes and exporting TOTP secrets"
+      - "org.opencontainers.image.version=0.1.0"
+      - "org.opencontainers.image.licenses=MIT"
+      - "org.opencontainers.image.vendor=BAUER GROUP"
+      - "org.opencontainers.image.authors=Karl Bauer <karl.bauer@bauer-group.com>"
+      - "org.opencontainers.image.source=https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder"
+      - "org.opencontainers.image.url=https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder"
+      - "org.opencontainers.image.documentation=https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder#readme"
+
+# =============================================================================
+# Networks (optional - uses default bridge if not specified)
+# =============================================================================
+networks:
+  default:
+    name: ga-export-decoder
+    driver: bridge
