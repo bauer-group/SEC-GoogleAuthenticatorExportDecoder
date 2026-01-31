@@ -1,0 +1,60 @@
+# =============================================================================
+# Dependabot Configuration
+# =============================================================================
+# Monitors dependencies for security updates and version bumps.
+#
+# Ecosystems:
+#   - npm: Node.js packages (package.json)
+#   - github-actions: CI/CD workflow actions
+# =============================================================================
+
+version: 2
+updates:
+  # ---------------------------------------------------------------------------
+  # npm (Node.js) dependencies
+  # ---------------------------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "06:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "npm"
+      - "dependabot"
+    commit-message:
+      prefix: "chore(deps)"
+    # Group minor/patch updates to reduce PR noise
+    groups:
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+      production-dependencies:
+        dependency-type: "production"
+        update-types:
+          - "patch"
+    # Limit open PRs to avoid overwhelming
+    open-pull-requests-limit: 10
+    # Auto-merge patch updates (requires GitHub Actions workflow)
+    versioning-strategy: increase
+
+  # ---------------------------------------------------------------------------
+  # GitHub Actions updates
+  # ---------------------------------------------------------------------------
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "06:30"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "dependabot"
+    commit-message:
+      prefix: "chore(ci)"
