@@ -65,7 +65,8 @@ i18n
     backend: {
       // Path to load translation files
       // {{lng}} = language code, {{ns}} = namespace
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      // Use BASE_URL to support GitHub Pages deployment with subpath
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
     },
 
     // Language detection configuration
