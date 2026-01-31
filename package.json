@@ -1,6 +1,6 @@
 {
   "name": "google-authenticator-export-decoder",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "PWA to scan Google Authenticator export QR codes and export TOTP secrets to CSV, JSON, or Bitwarden format",
   "author": "Karl Bauer <karl.bauer@bauer-group.com>",
   "license": "MIT",
@@ -10,16 +10,16 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-  "dev": "npx vite",
-  "build": "npx tsc --noEmit && npx vite build",
-  "preview": "npx vite preview",
-  "test": "npx vitest",
-  "test:run": "npx vitest run",
-  "test:coverage": "npx vitest run --coverage",
-  "type-check": "npx tsc --noEmit",
-  "clean": "npx rimraf dist node_modules/.vite",
-  "generate-icons": "node scripts/generate-icons.mjs"
-},
+    "dev": "npx vite",
+    "build": "npx tsc --noEmit && npx vite build",
+    "preview": "npx vite preview",
+    "test": "npx vitest",
+    "test:run": "npx vitest run",
+    "test:coverage": "npx vitest run --coverage",
+    "type-check": "npx tsc --noEmit",
+    "clean": "npx rimraf dist node_modules/.vite",
+    "generate-icons": "node scripts/generate-icons.mjs"
+  },
   "keywords": [
     "2fa",
     "google",

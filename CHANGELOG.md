@@ -1,3 +1,9 @@
+## [0.1.2](https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder/compare/v0.1.1...v0.1.2) (2026-01-31)
+
+### ♻️ Refactoring
+
+* **react:** update to React v19 ([3c06fa9](https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder/commit/3c06fa909107eacf5f8b0f9edb64c95ab7c9e59d))
+
 ## [0.1.1](https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder/compare/v0.1.0...v0.1.1) (2026-01-31)
 
 ### 🐛 Bug Fixes
