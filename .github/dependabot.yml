@@ -38,7 +38,7 @@ updates:
         update-types:
           - "patch"
     # Limit open PRs to avoid overwhelming
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 25
     # Auto-merge patch updates (requires GitHub Actions workflow)
     versioning-strategy: increase
 
