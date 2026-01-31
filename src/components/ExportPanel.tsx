@@ -3,7 +3,7 @@
  * Obsidian Security Design - sophisticated dark theme with elegant export buttons
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Download,
@@ -48,7 +48,7 @@ export function ExportPanel({
   className,
   onExportSuccess,
   onExportError,
-}: ExportPanelProps): JSX.Element {
+}: ExportPanelProps) {
   const { t } = useTranslation();
   const [buttonState, setButtonState] = useState<ExportButtonState>({
     csv: 'idle',
@@ -127,7 +127,7 @@ export function ExportPanel({
     }
   }, [accounts, canExport, onExportSuccess, onExportError, resetButtonState]);
 
-  const getButtonIcon = (format: ExportFormat, defaultIcon: JSX.Element) => {
+  const getButtonIcon = (format: ExportFormat, defaultIcon: ReactElement) => {
     const state = buttonState[format];
     switch (state) {
       case 'downloading':

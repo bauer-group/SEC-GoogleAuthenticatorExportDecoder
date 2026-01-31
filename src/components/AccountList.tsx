@@ -48,7 +48,7 @@ export function AccountList({
   batchInfo,
   onClear,
   className = '',
-}: AccountListProps): JSX.Element {
+}: AccountListProps) {
   const { t } = useTranslation();
   const [visibleSecrets, setVisibleSecrets] = useState<VisibleSecrets>(new Set());
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);

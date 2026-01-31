@@ -15,7 +15,7 @@ interface ThemeToggleProps {
  * Displays sun icon for dark mode (click to switch to light)
  * Displays moon icon for light mode (click to switch to dark)
  */
-export function ThemeToggle({ className }: ThemeToggleProps): JSX.Element {
+export function ThemeToggle({ className }: ThemeToggleProps) {
   const { theme, toggleTheme } = useTheme();
 
   const isDark = theme === 'dark';

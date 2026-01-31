@@ -84,7 +84,7 @@ const getNotificationStyles = (type: Notification['type']): string => {
 /**
  * Main App component
  */
-function App(): JSX.Element {
+function App() {
   const { t } = useTranslation();
 
   // PWA environment detection

@@ -35,7 +35,7 @@ export function LanguageSwitcher({
   className,
   mode = 'toggle',
   onLanguageChange,
-}: LanguageSwitcherProps): JSX.Element {
+}: LanguageSwitcherProps) {
   const { t, i18n } = useTranslation();
 
   // Get current language (use resolvedLanguage for actual displayed language)

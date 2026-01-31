@@ -67,7 +67,7 @@ export function QRScanner({
   onError,
   active = true,
   className = '',
-}: QRScannerProps): JSX.Element {
+}: QRScannerProps) {
   const { t } = useTranslation();
 
   const [status, setStatus] = useState<ScannerStatus>('idle');
@@ -332,7 +332,7 @@ export function QRScanner({
   /**
    * Render file upload suggestion
    */
-  const renderFileUploadSuggestion = (): JSX.Element => (
+  const renderFileUploadSuggestion = () => (
     <div className="mt-4 p-3 bg-[hsl(var(--info-bg))] rounded-lg border border-[hsl(var(--info)/0.3)]">
       <p className="text-sm text-[hsl(var(--info))] flex items-start gap-2">
         <Upload className="w-4 h-4 shrink-0 mt-0.5" />
@@ -344,7 +344,7 @@ export function QRScanner({
   /**
    * Render status message
    */
-  const renderStatusMessage = (): JSX.Element | null => {
+  const renderStatusMessage = () => {
     switch (status) {
       case 'initializing':
         return (

@@ -46,7 +46,7 @@ export function FileUpload({
   onError,
   className,
   disabled = false,
-}: FileUploadProps): JSX.Element {
+}: FileUploadProps) {
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [status, setStatus] = useState<UploadStatus>('idle');
@@ -208,7 +208,7 @@ export function FileUpload({
     setSelectedFileName('');
   }, []);
 
-  const renderDropzoneContent = (): JSX.Element => {
+  const renderDropzoneContent = () => {
     switch (status) {
       case 'dragging':
         return (

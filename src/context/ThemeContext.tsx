@@ -53,7 +53,7 @@ interface ThemeProviderProps {
  * ThemeProvider component
  * Manages theme state and applies theme class to document
  */
-export function ThemeProvider({ children }: ThemeProviderProps): JSX.Element {
+export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
   /**

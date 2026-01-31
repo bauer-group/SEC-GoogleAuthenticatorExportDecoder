@@ -31,7 +31,7 @@ import { ThemeProvider } from './context/ThemeContext';
  * Loading fallback component for Suspense
  * Displayed while i18n translations are being loaded
  */
-function LoadingFallback(): JSX.Element {
+function LoadingFallback() {
   return (
     <div
       style={{
