@@ -10,16 +10,16 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "type-check": "tsc --noEmit",
-    "clean": "rimraf dist node_modules/.vite",
-    "generate-icons": "node scripts/generate-icons.mjs"
-  },
+  "dev": "npx vite",
+  "build": "npx tsc --noEmit && npx vite build",
+  "preview": "npx vite preview",
+  "test": "npx vitest",
+  "test:run": "npx vitest run",
+  "test:coverage": "npx vitest run --coverage",
+  "type-check": "npx tsc --noEmit",
+  "clean": "npx rimraf dist node_modules/.vite",
+  "generate-icons": "node scripts/generate-icons.mjs"
+},
   "keywords": [
     "2fa",
     "google",
