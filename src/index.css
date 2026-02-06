@@ -202,7 +202,6 @@
     );
     color: hsl(var(--foreground));
     min-height: 100vh;
-    overflow-x: hidden;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     transition: background 0.3s ease, color 0.3s ease;
   }
@@ -481,16 +480,6 @@
     border-radius: var(--radius);
     overflow: hidden;
     background: hsl(var(--background));
-    max-width: 100%;
-  }
-
-  .qr-scanner-container video,
-  .qr-scanner-container img,
-  .qr-scanner-container canvas {
-    max-width: 100% !important;
-    width: 100% !important;
-    height: auto !important;
-    object-fit: cover;
   }
 
   .qr-scanner-container::before {

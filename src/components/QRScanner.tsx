@@ -486,7 +486,7 @@ export function QRScanner({
           aria-label={t('accessibility.scannerRegion')}
         >
           {/* Scanner element */}
-          <div id={SCANNER_ELEMENT_ID} className="w-full h-full min-h-[300px] overflow-hidden" />
+          <div id={SCANNER_ELEMENT_ID} className="w-full h-full min-h-[300px]" />
 
           {/* Scanning frame overlay */}
           <div className="absolute inset-0 pointer-events-none z-10">
