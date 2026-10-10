@@ -1,6 +1,6 @@
 {
   "name": "google-authenticator-export-decoder",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "PWA to scan Google Authenticator export QR codes and export TOTP secrets to CSV, JSON, or Bitwarden format",
   "author": "Karl Bauer <karl.bauer@bauer-group.com>",
   "license": "MIT",
