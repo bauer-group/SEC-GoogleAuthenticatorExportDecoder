@@ -4,6 +4,12 @@ All notable changes to this project are documented here. This file is maintained
 automatically by [semantic-release](https://github.com/semantic-release/semantic-release)
 on every release to `main`.
 
+## [0.1.4](https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder/compare/v0.1.3...v0.1.4) (2026-10-11)
+
+### 🐛 Bug Fixes
+
+* **deps:** updated i18next-http-backend to 4.0.2 ([216fd5f](https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder/commit/216fd5f2a831533b4d748193e0773c93388b5e06))
+
 ## [0.1.3](https://github.com/bauer-group/SEC-GoogleAuthenticatorExportDecoder/compare/v0.1.2...v0.1.3) (2026-10-10)
 
 ### 🐛 Bug Fixes
