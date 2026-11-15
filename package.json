@@ -43,7 +43,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "hi-base32": "^0.5.1",
+    "hi-base32": "^0.6.0",
     "html5-qrcode": "^2.3.8",
     "i18next": "^25.8.0",
     "i18next-browser-languagedetector": "^8.0.4",
