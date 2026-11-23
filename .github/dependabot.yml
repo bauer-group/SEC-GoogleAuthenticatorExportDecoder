@@ -27,8 +27,11 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     # Group minor/patch updates to reduce PR noise.
-    # Lock-step groups come first: Dependabot puts a dependency into the
-    # first group it matches, and these include major updates.
+    # Lock-step groups (incl. major updates) keep packages that must move
+    # together in one PR. Their packages are excluded from the generic
+    # dev/production groups below: Dependabot does not use "first match
+    # wins" - it ranks a dependency-type group above a wildcard pattern,
+    # and an open generic group PR claims every package it matches.
     groups:
       # react-dom throws at startup unless react has the exact same version
       react:
@@ -55,11 +58,24 @@ updates:
           - "@radix-ui/*"
       dev-dependencies:
         dependency-type: "development"
+        exclude-patterns:
+          - "@types/react"
+          - "@types/react-dom"
+          - "vite"
+          - "@vitejs/*"
+          - "vite-plugin-pwa"
         update-types:
           - "minor"
           - "patch"
       production-dependencies:
         dependency-type: "production"
+        exclude-patterns:
+          - "react"
+          - "react-dom"
+          - "i18next"
+          - "i18next-*"
+          - "react-i18next"
+          - "@radix-ui/*"
         update-types:
           - "patch"
     # Limit open PRs to avoid overwhelming
