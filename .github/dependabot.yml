@@ -26,8 +26,33 @@ updates:
       - "dependabot"
     commit-message:
       prefix: "chore(deps)"
-    # Group minor/patch updates to reduce PR noise
+    # Group minor/patch updates to reduce PR noise.
+    # Lock-step groups come first: Dependabot puts a dependency into the
+    # first group it matches, and these include major updates.
     groups:
+      # react-dom throws at startup unless react has the exact same version
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      # vite 8 needs @vitejs/plugin-react >= 6 and vite-plugin-pwa >= 2
+      vite:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+          - "vite-plugin-pwa"
+      # react-i18next 18 needs i18next >= 27
+      i18next:
+        patterns:
+          - "i18next"
+          - "i18next-*"
+          - "react-i18next"
+      # Radix primitives share internal packages - update them together
+      radix-ui:
+        patterns:
+          - "@radix-ui/*"
       dev-dependencies:
         dependency-type: "development"
         update-types:
@@ -58,3 +83,7 @@ updates:
       - "dependabot"
     commit-message:
       prefix: "chore(ci)"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
