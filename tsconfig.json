@@ -27,10 +27,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
 
-    /* Base URL for imports */
-    "baseUrl": ".",
+    /* Path aliases - resolved relative to this file (baseUrl was removed in TypeScript 7) */
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src", "package.json"]
