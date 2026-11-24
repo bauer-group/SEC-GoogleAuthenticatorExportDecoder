@@ -154,15 +154,21 @@ export default defineConfig({
     }
   },
   build: {
-    target: 'ES2020',
+    // Lowercase on purpose: Vite 8 passes the target to Lightning CSS,
+    // which rejects 'ES2020'. Works the same on Vite 7.
+    target: 'es2020',
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          i18n: ['i18next', 'react-i18next', 'i18next-browser-languagedetector', 'i18next-http-backend'],
-          qrcode: ['html5-qrcode'],
-          protobuf: ['protobufjs']
+        // Function form: Rollup (Vite 7) and Rolldown (Vite 8) both accept
+        // it, while Rolldown rejects the object form.
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return undefined;
+          if (/[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/.test(id)) return 'vendor';
+          if (/[\\/]node_modules[\\/](i18next|react-i18next|i18next-browser-languagedetector|i18next-http-backend)[\\/]/.test(id)) return 'i18n';
+          if (/[\\/]node_modules[\\/]html5-qrcode[\\/]/.test(id)) return 'qrcode';
+          if (/[\\/]node_modules[\\/](protobufjs|@protobufjs)[\\/]/.test(id)) return 'protobuf';
+          return undefined;
         }
       }
     }
